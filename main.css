@@ -1,3 +1,18 @@
+@font-face {
+    font-family: "iA Writer Quattro S";
+    src: url("static/fonts/iAWriterQuattroS-Regular.woff2") format("woff2"),
+         url("static/fonts/iAWriterQuattroS-Regular.woff") format("woff");
+}
+
+@font-face {
+    font-family: "EB Garamond";
+    src: local("EB Garamond Bold"),
+        local("EBGaramond-Bold"),
+        url("static/fonts/EBGaramond-Bold.woff2") format("woff2"),
+        url("static/fonts/EBGaramond-Bold.woff") format("woff");
+    font-weight: bold;
+}
+
 :root {
     --hue: 36;
     --sat: 9.8%;
