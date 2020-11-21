@@ -1,0 +1,4 @@
+- [ ] Add other spending categories to data
+- [ ] Graphs for tory budgets vs labour budgets
+- [ ] Top biggest NHS increases
+- [ ] Tax on levels of income over time

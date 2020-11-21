@@ -7,7 +7,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     for (let figure of figures) {
         let element = document.createElement("div");
-        element.class = "image";
         element.id = figure;
 
         document.getElementById("plotlyContainer").append(element);
@@ -29,43 +28,36 @@ document.addEventListener("DOMContentLoaded", function () {
             "1900-2021 UK Government Spending (adjusted for inflation)"
         );
     });
-
-    Plotly.d3.csv("data/" + figures[3] + ".csv", (data) => {
-        barPlot(
-            data,
-            figures[3],
-            "group",
-            "1970-2021 UK Government Spending (adjusted for inflation)"
-        );
-    });
 });
 
 function barPlot(data, plotID, mode, title) {
-    var values = [];
+    let values = [];
 
-    for (let key of Object.keys(data[0])) {
+    const keys = Object.keys(data[0]);
+    for (let key of keys) {
         values.push(data.map((obj) => obj[key]));
     }
 
-    var dataSets = [];
+    let dataSets = [];
 
-    for (var i = 1; i < values.length; i++) {
+    for (let i = 1; i < values.length; i++) {
         dataSets.push({
             x: values[0],
             y: values[i].map((x) => parseInt(x)),
-            name: Object.keys(data[0])[i],
+            name: keys[i],
             type: "bar",
         });
     }
 
-    var layout = {
+    const layout = {
         title: title,
         barmode: "stack",
         autosize: true,
     };
-    var config = {
-        responsive: true
-    }
+
+    const config = {
+        responsive: true,
+    };
 
     Plotly.newPlot(plotID, dataSets, layout, config);
 }
