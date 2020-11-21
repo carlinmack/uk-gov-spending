@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
             data,
             figures[2],
             "group",
-            "1900-1969 UK Government Spending (adjusted for inflation)"
+            "1900-2021 UK Government Spending (adjusted for inflation)"
         );
     });
 
