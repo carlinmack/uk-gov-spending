@@ -90,7 +90,7 @@ function plot(data, plotID, title, { ylabel = "", mode = "stack", type = "" } = 
             ...options,
         });
     }
-
+    // https://coolors.co/b690d5-64c3d8-8ec07f-fad564-db5a81-f1c8e5-ef9c43-7ac7a6-769dcc-bd51bd
     let layout = {
         title: title,
         barmode: mode,
@@ -98,6 +98,18 @@ function plot(data, plotID, title, { ylabel = "", mode = "stack", type = "" } = 
         yaxis: {
             tickprefix: "£",
         },
+        colorway: [
+            "#B690D5",
+            "#64C3D8",
+            "#8ec07f",
+            "#fad564",
+            "#db5a81",
+            "#f1c8e5",
+            "#ef9c43",
+            "#7ac7a6",
+            "#769dcc",
+            "#bd51bd",
+        ],
     };
 
     if (ylabel) {
