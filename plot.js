@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
         "1900-1969-spending",
         "1970-2021-spending",
         "1900-2021-spending-inflation",
+        "1900-2021-spending-inflation-change",
     ];
 
     for (let figure of figures) {
@@ -13,29 +14,44 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     Plotly.d3.csv("data/" + figures[0] + ".csv", (data) => {
-        barPlot(data, figures[0], "group", "1900-1969 UK Government Spending");
+        barPlot(data, figures[0], "1900-1969 UK Government Spending");
     });
 
     Plotly.d3.csv("data/" + figures[1] + ".csv", (data) => {
-        barPlot(data, figures[1], "group", "1970-2021 UK Government Spending");
+        barPlot(data, figures[1], "1970-2021 UK Government Spending");
     });
 
     Plotly.d3.csv("data/" + figures[2] + ".csv", (data) => {
         barPlot(
             data,
             figures[2],
-            "group",
             "1900-2021 UK Government Spending (adjusted for inflation)"
+        );
+
+        barPlot(
+            data,
+            figures[3],
+            "1900-2021 Change in UK Government Spending (adjusted for inflation)",
+            "relative"
         );
     });
 });
 
-function barPlot(data, plotID, mode, title) {
+function barPlot(data, plotID, title, mode = "stack") {
     let values = [];
 
     const keys = Object.keys(data[0]);
     for (let key of keys) {
         values.push(data.map((obj) => obj[key]));
+    }
+    
+    if (mode == "relative") {
+        for (let i = 1; i < values.length; i++) {
+            for (let j = 1; j < values[i].length; j++) {
+                values[i][j - 1] = values[i][j] - values[i][j - 1];
+            }
+        }
+        values[0].shift()
     }
 
     let dataSets = [];
@@ -51,7 +67,7 @@ function barPlot(data, plotID, mode, title) {
 
     const layout = {
         title: title,
-        barmode: "stack",
+        barmode: mode,
         autosize: true,
     };
 
