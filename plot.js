@@ -65,11 +65,18 @@ function barPlot(data, plotID, title, mode = "stack") {
         });
     }
 
-    const layout = {
+    let layout = {
         title: title,
         barmode: mode,
         autosize: true,
+        yaxis: {
+            tickprefix: "£",
+        },
     };
+
+    if (mode == "relative") {
+        layout.yaxis.title = "2013 £s"
+    } 
 
     const config = {
         responsive: true,
