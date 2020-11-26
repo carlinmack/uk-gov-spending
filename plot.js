@@ -25,33 +25,34 @@ document.addEventListener("DOMContentLoaded", function () {
         barPlot(
             data,
             figures[2],
-            "1900-2021 UK Government Spending (adjusted for inflation)"
+            "1900-2021 UK Government Spending (adjusted for inflation)",
+            { ylabel: "2013 £s" }
         );
 
         barPlot(
             data,
             figures[3],
             "1900-2021 Change in UK Government Spending (adjusted for inflation)",
-            "relative"
+            { mode: "relative", ylabel: "2013 £s" }
         );
     });
 });
 
-function barPlot(data, plotID, title, mode = "stack") {
+function barPlot(data, plotID, title, { ylabel = "", mode = "stack" } = {}) {
     let values = [];
 
     const keys = Object.keys(data[0]);
     for (let key of keys) {
         values.push(data.map((obj) => obj[key]));
     }
-    
+
     if (mode == "relative") {
         for (let i = 1; i < values.length; i++) {
             for (let j = 1; j < values[i].length; j++) {
                 values[i][j - 1] = values[i][j] - values[i][j - 1];
             }
         }
-        values[0].shift()
+        values[0].shift();
     }
 
     let dataSets = [];
@@ -74,9 +75,9 @@ function barPlot(data, plotID, title, mode = "stack") {
         },
     };
 
-    if (mode == "relative") {
-        layout.yaxis.title = "2013 £s"
-    } 
+    if (ylabel) {
+        layout.yaxis.title = ylabel;
+    }
 
     const config = {
         responsive: true,
