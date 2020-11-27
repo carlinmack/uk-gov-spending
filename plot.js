@@ -1,49 +1,101 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const figures = [
+    const spendingFigures = [
         "1900-1969-spending",
-        "1970-2021-spending",
-        "1900-2021-spending-inflation",
-        "1900-2021-spending-inflation-change",
-        "1900-2021-spending-inflation-cumulative",
+        "1970-2020-spending",
+        "1900-2020-spending-inflation",
+        "1900-2020-spending-inflation-change",
+        "1900-2020-spending-inflation-cumulative",
     ];
 
-    for (let figure of figures) {
+    for (let figure of spendingFigures) {
         let element = document.createElement("div");
         element.id = figure;
 
         document.getElementById("plotlyContainer").append(element);
     }
 
-    Plotly.d3.csv("data/" + figures[0] + ".csv", (data) => {
-        plot(data, figures[0], "1900-1969 UK Government Spending");
+    Plotly.d3.csv("data/" + spendingFigures[0] + ".csv", (data) => {
+        plot(data, spendingFigures[0], "1900-1969 UK Government Spending");
     });
 
-    Plotly.d3.csv("data/" + figures[1] + ".csv", (data) => {
-        plot(data, figures[1], "1970-2021 UK Government Spending");
+    Plotly.d3.csv("data/" + spendingFigures[1] + ".csv", (data) => {
+        plot(data, spendingFigures[1], "1970-2021 UK Government Spending");
     });
 
-    Plotly.d3.csv("data/" + figures[2] + ".csv", (data) => {
+    Plotly.d3.csv("data/" + spendingFigures[2] + ".csv", (data) => {
         plot(
             data,
-            figures[2],
+            spendingFigures[2],
             "1900-2021 UK Government Spending (adjusted for inflation)",
             { ylabel: "2013 £s" }
         );
 
         plot(
             data,
-            figures[3],
+            spendingFigures[3],
             "1900-2021 Change in UK Government Spending (adjusted for inflation)",
             { mode: "relative", ylabel: "2013 £s" }
         );
 
         plot(
             data,
-            figures[4],
+            spendingFigures[4],
             "1900-2021 Cumulative UK Government Spending (adjusted for inflation)",
             { type: "line", ylabel: "2013 £s", mode: "cumulative" }
         );
     });
+
+    let element = document.createElement("h2");
+    element.innerHTML = "Revenue";
+    document.getElementById("plotlyContainer").append(element);
+
+    const revenueFigures = [
+        "1900-1969-revenue",
+        "1970-2020-revenue",
+        "1900-2020-revenue-inflation",
+        "1900-2020-revenue-inflation-change",
+        "1900-2020-revenue-inflation-cumulative",
+    ];
+
+    for (let figure of revenueFigures) {
+        let element = document.createElement("div");
+        element.id = figure;
+
+        document.getElementById("plotlyContainer").append(element);
+    }
+
+    Plotly.d3.csv("data/" + revenueFigures[0] + ".csv", (data) => {
+        plot(data, revenueFigures[0], "1900-1969 UK Government Revenue");
+    });
+
+    Plotly.d3.csv("data/" + revenueFigures[1] + ".csv", (data) => {
+        plot(data, revenueFigures[1], "1970-2021 UK Government Revenue");
+    });
+
+    Plotly.d3.csv("data/" + revenueFigures[2] + ".csv", (data) => {
+        plot(
+            data,
+            revenueFigures[2],
+            "1900-2021 UK Government Revenue (adjusted for inflation)",
+            { ylabel: "2013 £s" }
+        );
+
+        plot(
+            data,
+            revenueFigures[3],
+            "1900-2021 Change in UK Government Revenue (adjusted for inflation)",
+            { mode: "relative", ylabel: "2013 £s" }
+        );
+
+        plot(
+            data,
+            revenueFigures[4],
+            "1900-2021 Cumulative UK Government Revenue (adjusted for inflation)",
+            { type: "line", ylabel: "2013 £s", mode: "cumulative" }
+        );
+    });
+
+
 });
 
 function plot(data, plotID, title, { ylabel = "", mode = "stack", type = "" } = {}) {
