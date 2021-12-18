@@ -27,25 +27,25 @@ document.addEventListener("DOMContentLoaded", function () {
             data,
             spendingFigures[2],
             "1900-2021 UK Government Spending (adjusted for inflation)",
-            { ylabel: "2013 £s" }
+            { ylabel: "2000 £s" }
         );
 
         plot(
             data,
             spendingFigures[3],
-            "1900-2021 Change in UK Government Spending (adjusted for inflation)",
-            { mode: "relative", ylabel: "2013 £s" }
+            '1900-2021 Change in UK Government Spending (adjusted for inflation)',
+            { mode: 'relative', ylabel: '2000 £s' }
         );
 
         plot(
             data,
             spendingFigures[4],
-            "1900-2021 Cumulative UK Government Spending (adjusted for inflation)",
-            { type: "line", ylabel: "2013 £s", mode: "cumulative" }
+            '1900-2021 Cumulative UK Government Spending (adjusted for inflation)',
+            { type: 'line', ylabel: '2000 £s', mode: 'cumulative' }
         );
     });
 
-    let element = document.createElement("h2");
+    var element = document.createElement("h2");
     element.innerHTML = "Revenue";
     document.getElementById("plotlyContainer").append(element);
 
@@ -76,25 +76,31 @@ document.addEventListener("DOMContentLoaded", function () {
         plot(
             data,
             revenueFigures[2],
-            "1900-2021 UK Government Revenue (adjusted for inflation)",
-            { ylabel: "2013 £s" }
+            '1900-2021 UK Government Revenue (adjusted for inflation)',
+            { ylabel: '2000 £s' }
         );
 
         plot(
             data,
             revenueFigures[3],
-            "1900-2021 Change in UK Government Revenue (adjusted for inflation)",
-            { mode: "relative", ylabel: "2013 £s" }
+            '1900-2021 Change in UK Government Revenue (adjusted for inflation)',
+            { mode: 'relative', ylabel: '2000 £s' }
         );
 
         plot(
             data,
             revenueFigures[4],
-            "1900-2021 Cumulative UK Government Revenue (adjusted for inflation)",
-            { type: "line", ylabel: "2013 £s", mode: "cumulative" }
+            '1900-2021 Cumulative UK Government Revenue (adjusted for inflation)',
+            { type: 'line', ylabel: '2000 £s', mode: 'cumulative' }
         );
     });
 
+    var element = document.createElement("div");
+    element.class = "js-plotly-plot"
+    let image = document.createElement('img')
+    image.src = "plots/Total.png";
+    element.append(image)
+    document.getElementById("plotlyContainer").append(element);
 
 });
 
