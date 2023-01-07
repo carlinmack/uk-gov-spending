@@ -6,7 +6,7 @@ import matplotlib.ticker as tkr
 
 
 def plot():
-    with open("data/1900-2020-inflation-total.csv", "r") as file:
+    with open("data/1900-present-inflation-total.csv", "r") as file:
         reader = csv.reader(file, delimiter=",")
         next(reader)
         fileData = [

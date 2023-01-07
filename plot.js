@@ -1,10 +1,10 @@
 document.addEventListener("DOMContentLoaded", function () {
     const spendingFigures = [
         "1900-1969-spending",
-        "1970-2020-spending",
-        "1900-2020-spending-inflation",
-        "1900-2020-spending-inflation-change",
-        "1900-2020-spending-inflation-cumulative",
+        "1970-present-spending",
+        "1900-present-spending-inflation",
+        "1900-present-spending-inflation-change",
+        "1900-present-spending-inflation-cumulative",
     ];
 
     for (let figure of spendingFigures) {
@@ -51,10 +51,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const revenueFigures = [
         "1900-1969-revenue",
-        "1970-2020-revenue",
-        "1900-2020-revenue-inflation",
-        "1900-2020-revenue-inflation-change",
-        "1900-2020-revenue-inflation-cumulative",
+        "1970-present-revenue",
+        "1900-present-revenue-inflation",
+        "1900-present-revenue-inflation-change",
+        "1900-present-revenue-inflation-cumulative",
     ];
 
     for (let figure of revenueFigures) {

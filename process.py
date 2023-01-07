@@ -69,17 +69,17 @@ def main():  # Read the data from the file into a pandas dataframe
     # with pd.option_context('display.max_colwidth', None, 'display.max_rows', None):
     # print(list(df.columns))
 
-    # 1900-2020-inflation-total
+    # 1900-present-inflation-total
     columns = ["Total Spending (adj)", "Total Direct Revenue (adj)"]
-    output(columns, df, "1900-2020-inflation-total.csv")
+    output(columns, df, "1900-present-inflation-total.csv")
 
-    # 1900-2020-spending-inflation
+    # 1900-present-spending-inflation
     columns = ["Health Care (NHS etc) (adj)", "Pensions (adj)", "Welfare (Benefits etc) (adj)", "Education (adj)", "Military (adj)", "Interest on Debts (adj)", "Other Spending (adj)", "Emergency Services (adj)", "Transport (Railway/Roads etc) (adj)", "General Government (adj)", ]
-    output(columns, df, "1900-2020-spending-inflation.csv")
+    output(columns, df, "1900-present-spending-inflation.csv")
 
-    # 1900-2020-revenue-inflation
+    # 1900-present-revenue-inflation
     columns = ["Income Tax (adj)", "Sales/Value Added Taxes (adj)", "National Insurance (adj)", "Business and Other Revenue (adj)", "Other (adj)", "Transportation (adj)", "Property Taxes (adj)", "Excise Taxes (adj)", "Capital Tax (adj)"]
-    output(columns, df, "1900-2020-revenue-inflation.csv")
+    output(columns, df, "1900-present-revenue-inflation.csv")
 
     # 1900-1969-spending
     columns = ["Health Care (NHS etc)", "Pensions", "Welfare (Benefits etc)", "Education", "Military", "Interest on Debts", "Other Spending", "Emergency Services", "Transport (Railway/Roads etc)", "General Government", ]
@@ -89,13 +89,13 @@ def main():  # Read the data from the file into a pandas dataframe
     columns = ["Income Tax", "Sales/Value Added Taxes", "National Insurance", "Business and Other Revenue", "Other", "Transportation", "Property Taxes", "Excise Taxes", "Capital Tax"]
     output(columns, df[:70], "1900-1969-revenue.csv")
 
-    # 1970-2020-spending
+    # 1970-present-spending
     columns = ["Health Care (NHS etc)", "Pensions", "Welfare (Benefits etc)", "Education", "Military", "Interest on Debts", "Other Spending", "Emergency Services", "Transport (Railway/Roads etc)", "General Government", ]
-    output(columns, df[70:], "1970-2020-spending.csv")
+    output(columns, df[70:], "1970-present-spending.csv")
 
-    # 1970-2020-revenue
+    # 1970-present-revenue
     columns = ["Income Tax", "Sales/Value Added Taxes", "National Insurance", "Business and Other Revenue", "Other", "Transportation", "Property Taxes", "Excise Taxes", "Capital Tax"]
-    output(columns, df[70:], "1970-2020-revenue.csv")
+    output(columns, df[70:], "1970-present-revenue.csv")
 
 
 def output(columns, df, filename):
