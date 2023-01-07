@@ -19,28 +19,28 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     Plotly.d3.csv("data/" + spendingFigures[1] + ".csv", (data) => {
-        plot(data, spendingFigures[1], "1970-2021 UK Government Spending");
+        plot(data, spendingFigures[1], "1970-2022 UK Government Spending");
     });
 
     Plotly.d3.csv("data/" + spendingFigures[2] + ".csv", (data) => {
         plot(
             data,
             spendingFigures[2],
-            "1900-2021 UK Government Spending (adjusted for inflation)",
+            "1900-2022 UK Government Spending (adjusted for inflation)",
             { ylabel: "2000 £s" }
         );
 
         plot(
             data,
             spendingFigures[3],
-            '1900-2021 Change in UK Government Spending (adjusted for inflation)',
+            '1900-2022 Change in UK Government Spending (adjusted for inflation)',
             { mode: 'relative', ylabel: '2000 £s' }
         );
 
         plot(
             data,
             spendingFigures[4],
-            '1900-2021 Cumulative UK Government Spending (adjusted for inflation)',
+            '1900-2022 Cumulative UK Government Spending (adjusted for inflation)',
             { type: 'line', ylabel: '2000 £s', mode: 'cumulative' }
         );
     });
@@ -69,28 +69,28 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     Plotly.d3.csv("data/" + revenueFigures[1] + ".csv", (data) => {
-        plot(data, revenueFigures[1], "1970-2021 UK Government Revenue");
+        plot(data, revenueFigures[1], "1970-2022 UK Government Revenue");
     });
 
     Plotly.d3.csv("data/" + revenueFigures[2] + ".csv", (data) => {
         plot(
             data,
             revenueFigures[2],
-            '1900-2021 UK Government Revenue (adjusted for inflation)',
+            '1900-2022 UK Government Revenue (adjusted for inflation)',
             { ylabel: '2000 £s' }
         );
 
         plot(
             data,
             revenueFigures[3],
-            '1900-2021 Change in UK Government Revenue (adjusted for inflation)',
+            '1900-2022 Change in UK Government Revenue (adjusted for inflation)',
             { mode: 'relative', ylabel: '2000 £s' }
         );
 
         plot(
             data,
             revenueFigures[4],
-            '1900-2021 Cumulative UK Government Revenue (adjusted for inflation)',
+            '1900-2022 Cumulative UK Government Revenue (adjusted for inflation)',
             { type: 'line', ylabel: '2000 £s', mode: 'cumulative' }
         );
     });

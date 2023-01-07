@@ -48,7 +48,7 @@ def plot():
 
     ax.set_xlim(
         left=dt.strptime("1900-01-01", "%Y-%m-%d"),
-        right=dt.strptime("2021-01-01", "%Y-%m-%d"),
+        right=dt.strptime("2023-01-01", "%Y-%m-%d"),
     )
     ax.xaxis_date()
 
